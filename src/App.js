@@ -1,9 +1,12 @@
 import './App.css';
 
+//Pages testing
+import Password from './pages/Password';
+
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
+      <Password></Password>
     </div>
   );
 }
