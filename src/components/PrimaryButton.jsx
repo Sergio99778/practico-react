@@ -11,6 +11,8 @@ const Button = styled.button`
   cursor: pointer;
   font-size: var(--md);
   font-weight: bold;
+  margin-top: 14px;
+  margin-bottom: 30px;
 `;
 
 const PrimaryButton = ({ value }) => {
