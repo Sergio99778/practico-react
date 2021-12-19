@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 
-//logo
+//imgs
 import logo from '../assets/logos/logo_yard_sale.svg';
+import email from '../assets/icons/email.svg';
 
 //Components
 import PrimaryButton from '../components/PrimaryButton';
@@ -21,6 +22,7 @@ const FormContainer = styled.div`
   display: grid;
   grid-template-rows: auto 1fr auto;
   width: 300px;
+  justify-items: center;
 `;
 
 const Form = styled.form`
@@ -54,22 +56,67 @@ const Input = styled.input`
   margin-bottom: 12px;
 `;
 
+const EmailImage = styled.div`
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  background-color: var(--text-input-field);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+  img {
+    width: 80px;
+  }
+`;
+const EmailResend = styled.p`
+  font-size: var(--sm);
+  span {
+    color: var(--very-light-pink);
+  }
+  a {
+    color: var(--hospital-green);
+    text-decoration: none;
+  }
+`;
+
 const Password = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSent(true);
+  };
+
+  const [isSent, setIsSent] = useState(false);
+
   return (
     <Login>
-      <FormContainer>
+      <FormContainer onSubmit={handleSubmit}>
         <Logo src={logo} alt="Logo" />
 
-        <Title value="Create a new password" />
-        <SubTitle value="Enter a new password for your account" />
-
-        <Form>
-          <Label htmlFor="password">Password</Label>
-          <Input type="password" name="" id="password" placeholder="Password" />
-          <Label htmlFor="re-password">Re-enter password</Label>
-          <Input type="password" name="" id="re-password" placeholder="Password" />
-          <PrimaryButton value="Confirm" />
-        </Form>
+        <Title value={isSent ? 'Email has been sent!' : 'Create a new password'} />
+        <SubTitle
+          value={isSent ? 'Please check your inbox for instructions on how to reset the password' : 'Enter a new password for your account'}
+        />
+        {isSent ? (
+          <>
+            <EmailImage>
+              <img src={email} alt="email" />
+            </EmailImage>
+            <PrimaryButton value="Login" />
+            <EmailResend>
+              <span>Didn't receive the email?</span>
+              <a href="/">Resend</a>
+            </EmailResend>
+          </>
+        ) : (
+          <Form>
+            <Label htmlFor="password">Password</Label>
+            <Input type="password" name="" id="password" placeholder="Password" />
+            <Label htmlFor="re-password">Re-enter password</Label>
+            <Input type="password" name="" id="re-password" placeholder="Password" />
+            <PrimaryButton value="Confirm" />
+          </Form>
+        )}
       </FormContainer>
     </Login>
   );
