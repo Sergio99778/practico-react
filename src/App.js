@@ -1,12 +1,12 @@
 import './App.css';
 
 //Pages testing
-import Password from './pages/Password';
+import Login from './pages/Login';
 
 function App() {
   return (
     <div className="App">
-      <Password></Password>
+      <Login></Login>
     </div>
   );
 }
