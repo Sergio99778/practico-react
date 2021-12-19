@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-//css
-import './css/Password.css';
-
 //logo
 import logo from '../assets/logos/logo_yard_sale.svg';
 
 //Components
 import PrimaryButton from '../components/PrimaryButton';
+import Title from '../components/Title';
+import SubTitle from '../components/SubTitle';
 
 //styled components
 const Login = styled.div`
@@ -61,8 +60,8 @@ const Password = () => {
       <FormContainer>
         <Logo src={logo} alt="Logo" />
 
-        <h1 className="title">Create a new password</h1>
-        <p className="subtitle">Enter a new password for your account</p>
+        <Title value="Create a new password" />
+        <SubTitle value="Enter a new password for your account" />
 
         <Form>
           <Label htmlFor="password">Password</Label>
