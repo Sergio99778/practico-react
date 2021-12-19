@@ -39,6 +39,22 @@ const Logo = styled.img`
   }
 `;
 
+const Label = styled.label`
+  font-size: var(--sm);
+  font-weight: bold;
+  margin-bottom: 4px;
+`;
+
+const Input = styled.input`
+  background-color: var(--text-input-field);
+  border: none;
+  border-radius: 8px;
+  height: 30px;
+  font-size: var(--md);
+  padding: 6px;
+  margin-bottom: 12px;
+`;
+
 const Password = () => {
   return (
     <Login>
@@ -49,14 +65,10 @@ const Password = () => {
         <p className="subtitle">Enter a new password for your account</p>
 
         <Form>
-          <label htmlFor="password" className="label">
-            Password
-          </label>
-          <input type="password" name="" id="password" placeholder="Password" className="input input-password" />
-          <label htmlFor="re-password" className="label">
-            Re-enter password
-          </label>
-          <input type="password" name="" id="re-password" placeholder="Password" className="input input-password" />
+          <Label htmlFor="password">Password</Label>
+          <Input type="password" name="" id="password" placeholder="Password" />
+          <Label htmlFor="re-password">Re-enter password</Label>
+          <Input type="password" name="" id="re-password" placeholder="Password" />
           <PrimaryButton value="Confirm" />
         </Form>
       </FormContainer>
