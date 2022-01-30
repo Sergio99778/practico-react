@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import styled from '@emotion/styled';
+import React, { useState } from "react";
+import styled from "@emotion/styled";
 
 //imgs
-import logo from '../assets/logos/logo_yard_sale.svg';
-import email from '../assets/icons/email.svg';
+import logo from "../assets/logos/logo_yard_sale.svg";
+import email from "../assets/icons/email.svg";
 
 //Components
-import PrimaryButton from '../components/PrimaryButton';
-import Title from '../components/Title';
-import SubTitle from '../components/SubTitle';
+import PrimaryButton from "../components/PrimaryButton";
+import Title from "../components/Title";
+import SubTitle from "../components/SubTitle";
 
 //styled components
 const Login = styled.div`
@@ -93,9 +93,15 @@ const Password = () => {
       <FormContainer onSubmit={handleSubmit}>
         <Logo src={logo} alt="Logo" />
 
-        <Title value={isSent ? 'Email has been sent!' : 'Create a new password'} />
+        <Title
+          value={isSent ? "Email has been sent!" : "Create a new password"}
+        />
         <SubTitle
-          value={isSent ? 'Please check your inbox for instructions on how to reset the password' : 'Enter a new password for your account'}
+          value={
+            isSent
+              ? "Please check your inbox for instructions on how to reset the password"
+              : "Enter a new password for your account"
+          }
         />
         {isSent ? (
           <>
@@ -111,9 +117,19 @@ const Password = () => {
         ) : (
           <Form>
             <Label htmlFor="password">Password</Label>
-            <Input type="password" name="" id="password" placeholder="Password" />
+            <Input
+              type="password"
+              name=""
+              id="password"
+              placeholder="Password"
+            />
             <Label htmlFor="re-password">Re-enter password</Label>
-            <Input type="password" name="" id="re-password" placeholder="Password" />
+            <Input
+              type="password"
+              name=""
+              id="re-password"
+              placeholder="Password"
+            />
             <PrimaryButton value="Confirm" />
           </Form>
         )}

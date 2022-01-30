@@ -1,13 +1,18 @@
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-//Pages testing
-import Login from './pages/Login';
+//Components
+import Login from "./pages/Login";
+import Password from "./pages/Password";
 
 function App() {
   return (
-    <div className="App">
-      <Login></Login>
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Login />} />
+        <Route exact path="/password" element={<Password />} />
+      </Routes>
+    </Router>
   );
 }
 

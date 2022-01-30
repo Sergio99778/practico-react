@@ -1,12 +1,13 @@
-import React from 'react';
-import styled from '@emotion/styled';
+import React from "react";
+import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 //Components
-import PrimaryButton from '../components/PrimaryButton';
-import SecondaryButton from '../components/SecondaryButton';
+import PrimaryButton from "../components/PrimaryButton";
+import SecondaryButton from "../components/SecondaryButton";
 
 //imgs
-import logo from '../assets/logos/logo_yard_sale.svg';
+import logo from "../assets/logos/logo_yard_sale.svg";
 
 const LoginContainer = styled.div`
   width: 100%;
@@ -72,11 +73,15 @@ const Login = () => {
       <FormContainer onSubmit={handleSubmit}>
         <Form>
           <Label htmlFor="EmailAddress">Email address</Label>
-          <Input type="email" placeholder="youremail@gmail.com" id="EmailAddress" />
+          <Input
+            type="email"
+            placeholder="youremail@gmail.com"
+            id="EmailAddress"
+          />
           <Label htmlFor="Password">Password</Label>
           <Input type="password" placeholder="Password" id="Password" />
           <PrimaryButton value="Log in" />
-          <a href="/">Forgot my password</a>
+          <Link to="/password">Forgot my password</Link>
         </Form>
         <SecondaryButton value="Sign Up" />
       </FormContainer>
