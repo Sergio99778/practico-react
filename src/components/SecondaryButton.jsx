@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from '@emotion/styled';
+import React from "react";
+import styled from "@emotion/styled";
 
 const Button = styled.button`
   background-color: var(--white);
@@ -15,8 +15,8 @@ const Button = styled.button`
   margin-bottom: 30px;
 `;
 
-const SecondaryButton = ({ value }) => {
-  return <Button>{value}</Button>;
+const SecondaryButton = ({ value, type }) => {
+  return <Button type={type || "button"}>{value}</Button>;
 };
 
 export default SecondaryButton;
