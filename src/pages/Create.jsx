@@ -93,7 +93,9 @@ const Create = () => {
               id="Password"
             />
           </ContainerAlign>
-          <PrimaryButton value="Join" />
+          <Link to="/" className="link">
+            <PrimaryButton value="Join" />
+          </Link>
         </Form>
       </FormContainer>
     </LoginContainer>

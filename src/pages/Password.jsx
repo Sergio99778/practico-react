@@ -141,7 +141,7 @@ const Password = () => {
               id="re-password"
               placeholder="Password"
             />
-            <PrimaryButton value="Confirm" />
+            <PrimaryButton type="submit" value="Confirm" />
           </Form>
         )}
       </FormContainer>
