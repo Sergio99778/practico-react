@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
+import { Link, useNavigate } from "react-router-dom";
 
 //imgs
 import logo from "../assets/logos/logo_yard_sale.svg";
@@ -10,7 +11,9 @@ import PrimaryButton from "../components/PrimaryButton";
 import Title from "../components/Title";
 import SubTitle from "../components/SubTitle";
 
-//styled components
+//STYLED COMPONENTS
+//STYLED COMPONENTS
+//STYLED COMPONENTS
 const Login = styled.div`
   width: 100%;
   height: 100vh;
@@ -26,6 +29,7 @@ const FormContainer = styled.div`
 `;
 
 const Form = styled.form`
+  width: inherit;
   display: flex;
   flex-direction: column;
 `;
@@ -79,12 +83,19 @@ const EmailResend = styled.p`
     text-decoration: none;
   }
 `;
+//END STYLED COMPONENTS
+//END STYLED COMPONENTS
+//END STYLED COMPONENTS
 
 const Password = () => {
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSent(true);
   };
+
+  const handleLoginClick = () => navigate("/", { replace: true });
 
   const [isSent, setIsSent] = useState(false);
 
@@ -108,10 +119,10 @@ const Password = () => {
             <EmailImage>
               <img src={email} alt="email" />
             </EmailImage>
-            <PrimaryButton value="Login" />
+            <PrimaryButton value="Login" onClick={handleLoginClick} />
             <EmailResend>
               <span>Didn't receive the email?</span>
-              <a href="/">Resend</a>
+              <Link to="/">Resend</Link>
             </EmailResend>
           </>
         ) : (

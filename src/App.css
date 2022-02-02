@@ -17,3 +17,8 @@ body {
   font-family: "Quicksand", sans-serif;
   margin: 0;
 }
+
+.link {
+  width: inherit;
+  height: inherit;
+}

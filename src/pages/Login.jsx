@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 
@@ -62,9 +62,25 @@ const Input = styled.input`
   margin-bottom: 22px;
 `;
 
-const Login = () => {
+const Login = ({ user, setUser }) => {
+  //Destructure data from user
+  const { email, password } = user;
+  const [error, setError] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    //Verify data from form
+    if (email.trim() === "" || password.trim() === "") {
+      setError(true);
+      return;
+    }
+
+    //Handle error
+    setError(false);
+  };
+
+  const handleChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   return (
@@ -74,17 +90,28 @@ const Login = () => {
         <Form>
           <Label htmlFor="EmailAddress">Email address</Label>
           <Input
+            name="email"
             type="email"
             placeholder="youremail@gmail.com"
             id="EmailAddress"
+            onChange={handleChange}
           />
           <Label htmlFor="Password">Password</Label>
-          <Input type="password" placeholder="Password" id="Password" />
-          <PrimaryButton value="Log in" />
+          <Input
+            name="password"
+            type="password"
+            placeholder="Password"
+            id="Password"
+            onChange={handleChange}
+          />
+          <PrimaryButton value="Login" />
           <Link to="/password">Forgot my password</Link>
         </Form>
-        <SecondaryButton value="Sign Up" />
+        <Link to="/create" className="link">
+          <SecondaryButton value="Sign Up" />
+        </Link>
       </FormContainer>
+      {error ? null : null}
     </LoginContainer>
   );
 };
