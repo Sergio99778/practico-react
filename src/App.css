@@ -20,5 +20,6 @@ body {
 
 .link {
   width: inherit;
-  height: inherit;
+  height: auto;
+  margin: 0;
 }
