@@ -15,11 +15,15 @@ const Button = styled.button`
   margin-bottom: 30px;
 `;
 
-const PrimaryButton = ({ value, onClick }) => {
+const PrimaryButton = ({ value, onClick, type }) => {
   let propsClick = () => {};
   if (onClick) propsClick = onClick;
 
-  return <Button onClick={propsClick}>{value}</Button>;
+  return (
+    <Button type={type ? type : "button"} onClick={propsClick}>
+      {value}
+    </Button>
+  );
 };
 
 export default PrimaryButton;

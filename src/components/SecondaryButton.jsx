@@ -15,8 +15,15 @@ const Button = styled.button`
   margin-bottom: 30px;
 `;
 
-const SecondaryButton = ({ value, type }) => {
-  return <Button type={type || "button"}>{value}</Button>;
+const SecondaryButton = ({ value, onClick, type }) => {
+  let propsClick = () => {};
+  if (onClick) propsClick = onClick;
+
+  return (
+    <Button type={type ? type : "button"} onClick={propsClick}>
+      {value}
+    </Button>
+  );
 };
 
 export default SecondaryButton;
